@@ -21,16 +21,25 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
+h1 {
+    font-size: 1.4rem;
+}
+
 p, ul, li {
     font-size: 1rem;
     margin: 0;
     padding: 0;
 }
 
+a {
+    color: inherit;
+}
+
 .navbar {
     background: linear-gradient(var(--color-background) 25%, rgba(0,0,0,0));
     backdrop-filter: blur(5px);
-    position: sticky;
+    position: fixed;
+    width: 100%;
     top: 0;
 }
 
@@ -47,15 +56,43 @@ p, ul, li {
     user-select: none;
 }
 
-.navbar > ul > li:hover {
-    text-decoration: underline;
+li > a {
+    text-decoration: none;
 }
 
+
+
 .main {
-    margin-top: 8rem;
+    /* margin-top: 8rem; */
     padding: 0px 1rem;
 }
 
-/* @media (min-width: 480px) {
+.inline-icon {
+    height: 1rem;
+    vertical-align: -0.2rem;
+    border-radius: 0.2rem;
+}
 
-} */
+.contact {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 1rem;
+}
+
+.contact > li {
+    text-decoration: underline;
+}
+
+noscript {
+    font-style: italic;
+    color: rgb(175,175,175);
+}
+
+/* desktop */
+@media (min-width: 1024px) {
+    .navbar > ul > li:hover {
+        text-decoration: underline;
+    }
+}
