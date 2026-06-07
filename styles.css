@@ -1,6 +1,11 @@
 :root {
     --color-background: rgb(10,10,10);
+    --color-background-light: rgb(20,20,20);
+    --color-tile: rgb(14,14,14);
+    --color-tile-light: rgb(24,24,24);
+
     --color-text: rgb(255,255,255);
+    --color-text-dark: rgb(128, 128, 128);
 }
 
 body, html {
@@ -12,6 +17,8 @@ body, html {
     font-weight: 400;
     font-style: normal;
     color: var(--color-text);
+
+    /* scroll-behavior: smooth; */
 
     -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape while allowing user zoom */
 }
@@ -35,12 +42,17 @@ a {
     color: inherit;
 }
 
+footer {
+    padding: 1rem;
+}
+
 .navbar {
     background: linear-gradient(var(--color-background) 25%, rgba(0,0,0,0));
     backdrop-filter: blur(5px);
     position: fixed;
     width: 100%;
     top: 0;
+    z-index: 99;
 }
 
 .navbar > ul {
@@ -56,7 +68,7 @@ a {
     user-select: none;
 }
 
-li > a {
+li > a, .project-board > a {
     text-decoration: none;
 }
 
@@ -71,6 +83,47 @@ li > a {
     height: 1rem;
     vertical-align: -0.2rem;
     border-radius: 0.2rem;
+}
+
+.project-board {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+}
+
+.project-tile {
+    display: flex;
+    flex-direction: row;
+    gap: 0.4rem;
+    background-color: var(--color-tile);
+    border-color: var(--color-tile-light);
+    border-style: solid;
+    border-width: 1px;
+    /* border-radius: 2px; */
+    aspect-ratio: 3;
+    
+    padding: 0.4rem;
+
+    transition: background-color 250ms;
+}
+
+.project-tile-icon {
+    flex: 1;
+    aspect-ratio: 1;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    /* border-radius: 2px; */
+}
+
+.project-tile-text {
+    flex: 2;
+    user-select: none;
+}
+
+.project-tile-text>:nth-child(2) {
+    color: var(--color-text-dark);
+    font-style: italic;
 }
 
 .contact {
@@ -94,5 +147,9 @@ noscript {
 @media (min-width: 1024px) {
     .navbar > ul > li:hover {
         text-decoration: underline;
+    }
+
+    .project-tile:hover {
+        background-color: var(--color-tile-light);
     }
 }
