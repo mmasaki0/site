@@ -5,6 +5,7 @@
     --color-tile-light: rgb(24,24,24);
 
     --color-text: rgb(255,255,255);
+    --color-text-darker: rgb(200,200,200);
     --color-text-dark: rgb(128, 128, 128);
 }
 
@@ -47,6 +48,10 @@ footer {
     color: var(--color-text-dark);
 }
 
+.no-wrap {
+    white-space: nowrap;
+}
+
 .main-container {
     display: flex;
     flex-direction: column;
@@ -83,6 +88,7 @@ li > a, .project-board > a {
 
 .main {
     padding: 0px 1rem;
+    scrollbar-width: none;
 }
 
 .inline-icon {
@@ -95,17 +101,20 @@ li > a, .project-board > a {
     display: grid;
     grid-template-columns: 1fr;
     gap: 0.6rem;
+    user-select: none;
 }
 
 .project-tile {
     display: flex;
+    box-sizing: content-box;
     flex-direction: row;
     gap: 0.4rem;
     background-color: var(--color-tile);
+    
     border-color: var(--color-tile-light);
     border-style: solid;
     border-width: 1px;
-    /* aspect-ratio: 4; */
+
     height: 6rem;
     padding: 0.4rem;
 
@@ -121,23 +130,24 @@ li > a, .project-board > a {
 }
 
 .project-tile-text {
-    flex: 2;
-    user-select: none;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-tile-text>:nth-child(1) {
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-            line-clamp: 2;
+    -webkit-line-clamp: 3;
+            line-clamp: 3;
 }
 
 .project-tile-text>:nth-child(2) {
     color: var(--color-text-dark);
     font-style: italic;
 
-        overflow: hidden;
+    overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
@@ -171,24 +181,33 @@ li > a, .project-board > a {
 
 noscript {
     font-style: italic;
-    color: rgb(175,175,175);
+    color: var(--color-text-dark);
 }
 
 /* tablet */
-@media (min-width: 480px) {
+@media (min-width: 768px) {
     .main-container {
-        max-width: 75vw;
+        max-width: 80vw;
         margin: auto;
     }
+
+    .project-board {
+        grid-template-columns: 1fr 1fr;
+    }
+
 }
 
 /* desktop */
 @media (min-width: 1024px) {
+    footer {
+        text-align: right;
+    }
+
     .main-container {
         flex-direction: row;
         max-width: 1024px;
-        margin: 10vh auto ;
-        height: 80vh;
+        margin: 15vh auto 10vh auto;
+        height: 75vh;
     }
 
     .navbar {
@@ -198,7 +217,7 @@ noscript {
     }
 
     .main {
-        flex: 5;
+        flex: 3;
         margin-top: 0;
         overflow-y: auto;
     }
@@ -210,6 +229,7 @@ noscript {
     .navbar > ul > li:hover {
         text-decoration: underline;
     }
+
 
     .project-tile:hover {
         background-color: var(--color-tile-light);
