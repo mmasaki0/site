@@ -154,6 +154,48 @@ li > a, .project-board > a {
             line-clamp: 1;
 }
 
+/* project gallery */
+.gallery-container {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.4rem;
+    background-color: var(--color-tile);
+    
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--color-tile-light);
+}
+
+.gallery-main {
+    background-color: var(--color-tile);
+    /* aspect-ratio: 1; */
+    height: 40vh;
+    margin-bottom: 1.2rem;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.gallery-thumbs {
+    display: grid;
+    overflow: scroll hidden;
+    grid-auto-flow: column;
+    /* grid-template-rows: 1fr; */
+    gap: 0.4rem;
+
+}
+
+.gallery-thumbs > div {
+    aspect-ratio: 1;
+    height: 6rem;
+    background-color: white;
+
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
 .contact {
     display: flex;
     flex-direction: row;

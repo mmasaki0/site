@@ -18,3 +18,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+document.querySelectorAll(".gallery-thumbs > div").forEach(e => {
+    e.addEventListener('click', function (e) {
+        document.getElementsByClassName("gallery-main")[0].style.backgroundImage = this.style.backgroundImage;
+    });
+})
+document.getElementsByClassName("gallery-main")[0].style.backgroundImage = document.getElementsByClassName("gallery-thumbs")[0].firstElementChild.style.backgroundImage;
+
