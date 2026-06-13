@@ -8,6 +8,37 @@ function highlight(e) {
     }, 500);
 }
 
+// update gallery main item (wip)
+function showGalleryMain(thumb) {
+    mainDiv = thumb.parentElement.parentElement.firstElementChild;
+    mainVid = mainDiv.nextElementSibling;
+    mainIframe = mainVid.nextElementSibling;
+
+    switch(thumb.dataset.type) {
+        case "img":
+            mainDiv.style.backgroundImage = thumb.style.backgroundImage;
+
+            mainDiv.style.display = "block";
+            mainVid.style.display = "none";
+            mainIframe.style.display = "none";
+            break;
+
+        case "gif":
+            mainDiv.style.backgroundImage = thumb.dataset.src
+
+            mainDiv.style.display = "block";
+            mainVid.style.display = "none";
+            mainIframe.style.display = "none";
+            break;
+
+        case "video":
+            break;
+        default:
+            break;
+    }
+}
+
+// scroll into view
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -18,34 +49,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-document.querySelectorAll(".gallery-thumbs > div").forEach(e => {
-    e.addEventListener('click', function (el) {
-        main1 = e.parentElement.parentElement.firstElementChild;
-        main2 = main1.nextElementSibling;
-
-        switch(e.dataset.type) {
-            case "img":
-                main1.style.backgroundImage = e.style.backgroundImage;
-
-                main1.style.display = "block";
-                main2.style.display = "none";
-                break;
-            case "gif":
-                console.log(e.dataset.src);
-                main1.style.backgroundImage = e.dataset.src
-
-                main1.style.display = "block";
-                main2.style.display = "none";
-                break;
-            default:
-                break;
-        }
-        // document.getElementsByClassName("gallery-main")[0].style.backgroundImage = this.style.backgroundImage;
+// adds click to all gallery items
+document.querySelectorAll(".gallery-thumbs > div").forEach(thumb => {
+    thumb.addEventListener('click', function(evt) {
+        showGalleryMain(evt.target);
     });
 })
 
-document.querySelectorAll(".gallery-main").forEach(e => {
-    e.style.backgroundImage = e.nextElementSibling.firstElementChild.style.backgroundImage;
+// sets first item in gallery to main item
+document.querySelectorAll(".gallery-thumbs").forEach(e => {
+    showGalleryMain(e.firstElementChild);
 })
-// document.getElementsByClassName("gallery-main")[0].style.backgroundImage = document.getElementsByClassName("gallery-thumbs")[0].firstElementChild.style.backgroundImage;
-
