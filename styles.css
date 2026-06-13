@@ -1,8 +1,8 @@
 :root {
     --color-background: rgb(10,10,10);
     --color-background-light: rgb(20,20,20);
-    --color-tile: rgb(14,14,14);
-    --color-tile-light: rgb(24,24,24);
+    --color-tile: rgb(20,20,20);
+    --color-tile-light: rgb(30,30,30);
 
     --color-text: rgb(255,255,255);
     --color-text-darker: rgb(200,200,200);
@@ -39,6 +39,17 @@ p, ul, li {
     padding: 0;
 }
 
+ul {
+    list-style: "- ";
+    /* list-style-position: outside; */
+    margin-left: 1rem;
+
+}
+
+li {
+    margin-bottom: 0.2rem;
+}
+
 a {
     color: inherit;
 }
@@ -69,6 +80,7 @@ footer {
 }
 
 .navbar > ul {
+    margin: 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -154,10 +166,32 @@ li > a, .project-board > a {
             line-clamp: 1;
 }
 
+.skills-tools {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.skills-tools > li {
+    font-size: 0.8rem;
+    color: var(--color-text-darker);
+    list-style: none;
+    background-color: var(--color-tile);
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.8rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--color-tile-light);
+    white-space: nowrap;
+}
+
 /* project gallery */
 .gallery-container {
     box-sizing: border-box;
     width: 100%;
+    /* height: max(10rem); */
     padding: 0.4rem;
     background-color: var(--color-tile);
     
@@ -167,9 +201,31 @@ li > a, .project-board > a {
 }
 
 .gallery-main {
+
+    /* box-sizing: content-box; */
     background-color: var(--color-tile);
+    
+    /* width: 100%;
+    height: max(30rem); */
+
+    width: 100%;
+    max-height: 20rem;
+    /* height: clamp(1rem, 1rem, 40rem); */
+    /* height: max(80%); */
+    aspect-ratio: 1;
+    
+    /* height: clamp(1px, 10rem, 30rem); */
+
+    /* width: clamp(100%, 100%, 40vh); */
+    /* height: clamp(100px, 50vh, 1000px); */
+
     /* aspect-ratio: 1; */
-    height: 40vh;
+    /* width: max(480px); */
+    /* aspect-ratio: clamp(1, 2, 2); */
+    /* height: clamp(20vh, 20vh, 40vh); */
+    /* aspect-ratio: clamp(0.75, 1, 100); */
+    
+    
     margin-bottom: 1.2rem;
 
     background-size: contain;
@@ -178,17 +234,17 @@ li > a, .project-board > a {
 }
 
 .gallery-thumbs {
-    display: grid;
+    width: max-content;
+    max-width: 100%;
+    display: flex;
     overflow: scroll hidden;
-    grid-auto-flow: column;
-    /* grid-template-rows: 1fr; */
     gap: 0.4rem;
-
+    margin: 0 auto;
 }
 
 .gallery-thumbs > div {
     aspect-ratio: 1;
-    height: 6rem;
+    height: 5rem;
     background-color: white;
 
     background-size: cover;
@@ -235,7 +291,6 @@ noscript {
     .project-board {
         grid-template-columns: 1fr 1fr;
     }
-
 }
 
 /* desktop */
@@ -247,8 +302,8 @@ noscript {
     .main-container {
         flex-direction: row;
         max-width: 1024px;
-        margin: 15vh auto 10vh auto;
-        height: 75vh;
+        margin: 12vh auto 8vh auto;
+        height: 80vh;
     }
 
     .navbar {
@@ -274,6 +329,12 @@ noscript {
 
     .project-tile:hover {
         background-color: var(--color-tile-light);
+    }
+
+    .gallery-thumbs > div {
+        height: 4rem;
+        /* height: unset; */
+        /* width: 100%; */
     }
 
     .spacer {

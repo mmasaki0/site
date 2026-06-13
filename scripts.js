@@ -19,9 +19,33 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 document.querySelectorAll(".gallery-thumbs > div").forEach(e => {
-    e.addEventListener('click', function (e) {
-        document.getElementsByClassName("gallery-main")[0].style.backgroundImage = this.style.backgroundImage;
+    e.addEventListener('click', function (el) {
+        main1 = e.parentElement.parentElement.firstElementChild;
+        main2 = main1.nextElementSibling;
+
+        switch(e.dataset.type) {
+            case "img":
+                main1.style.backgroundImage = e.style.backgroundImage;
+
+                main1.style.display = "block";
+                main2.style.display = "none";
+                break;
+            case "gif":
+                console.log(e.dataset.src);
+                main1.style.backgroundImage = e.dataset.src
+
+                main1.style.display = "block";
+                main2.style.display = "none";
+                break;
+            default:
+                break;
+        }
+        // document.getElementsByClassName("gallery-main")[0].style.backgroundImage = this.style.backgroundImage;
     });
 })
-document.getElementsByClassName("gallery-main")[0].style.backgroundImage = document.getElementsByClassName("gallery-thumbs")[0].firstElementChild.style.backgroundImage;
+
+document.querySelectorAll(".gallery-main").forEach(e => {
+    e.style.backgroundImage = e.nextElementSibling.firstElementChild.style.backgroundImage;
+})
+// document.getElementsByClassName("gallery-main")[0].style.backgroundImage = document.getElementsByClassName("gallery-thumbs")[0].firstElementChild.style.backgroundImage;
 
