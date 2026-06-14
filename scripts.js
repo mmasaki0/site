@@ -36,7 +36,7 @@ function showGalleryMain(thumb) {
             break;
 
         case "vid":
-            mainVid.src = thumb.dataset.src;
+            mainVid.src = thumb.dataset.src + "#t=0.001";
 
             mainDiv.style.display = "none";
             mainVid.style.display = "block";
