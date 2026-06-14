@@ -21,6 +21,8 @@ function showGalleryMain(thumb) {
             mainDiv.style.display = "block";
             mainVid.style.display = "none";
             mainIframe.style.display = "none";
+            mainVid.src="";
+            mainIframe.src="";
             break;
 
         case "gif":
@@ -29,9 +31,25 @@ function showGalleryMain(thumb) {
             mainDiv.style.display = "block";
             mainVid.style.display = "none";
             mainIframe.style.display = "none";
+            mainVid.src="";
+            mainIframe.src="";
             break;
 
-        case "video":
+        case "vid":
+            mainVid.src = thumb.dataset.src;
+
+            mainDiv.style.display = "none";
+            mainVid.style.display = "block";
+            mainIframe.style.display = "none";
+            mainIframe.src="";
+            break;
+        case "yt":
+            mainIframe.src = "https://www.youtube.com/embed/" + thumb.dataset.src;
+
+            mainDiv.style.display = "none";
+            mainVid.style.display = "none";
+            mainIframe.style.display = "block";
+            mainVid.src="";
             break;
         default:
             break;

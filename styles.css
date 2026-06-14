@@ -100,7 +100,7 @@ li > a, .project-board > a {
 
 .main {
     padding: 0px 1rem;
-    scrollbar-width: none;
+    /* scrollbar-width: none; */
 }
 
 .inline-icon {
