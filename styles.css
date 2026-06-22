@@ -59,7 +59,7 @@ footer {
 }
 
 .scrollbar {
-    scrollbar-color: rgba(128,128,128,0.5) transparent;
+    scrollbar-color: rgba(128,128,128,0.75) transparent;
     scrollbar-width: thin;
     
 }
@@ -171,6 +171,11 @@ li > a, .project-board > a {
             line-clamp: 1;
 }
 
+.text-date {
+    color: var(--color-text-dark);
+    font-style: italic;
+}
+
 .skills-tools {
     margin: 0;
     display: flex;
@@ -257,6 +262,15 @@ li > a, .project-board > a {
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
+}
+
+.gallery-overlay-vid {
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(/assets/gallery-overlay-vid.png);
+    pointer-events: none;
 }
 
 .contact {
