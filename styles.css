@@ -4,7 +4,7 @@
     --color-tile: rgb(20,20,20);
     --color-tile-light: rgb(30,30,30);
 
-    --color-text: rgb(255,255,255);
+    --color-text: rgb(252,252,252);
     --color-text-darker: rgb(200,200,200);
     --color-text-dark: rgb(128, 128, 128);
 }
@@ -20,7 +20,7 @@ body, html {
     color: var(--color-text);
 
     /* scroll-behavior: smooth; */
-    -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape while allowing user zoom */
+    -webkit-text-size-adjust: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -36,6 +36,10 @@ p, ul, li {
     font-size: 1rem;
     margin: 0;
     padding: 0;
+}
+
+p.commentary {
+    color: var(--color-text-darker);
 }
 
 ul {
