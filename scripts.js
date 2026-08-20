@@ -1,6 +1,6 @@
 function highlight(e) {
     e.style.transition = "text-shadow 1ms ease-in-out"
-    e.style.textShadow = "white 0 0 4px";
+    e.style.textShadow = "white 0 0 2px";
     
     setTimeout(() => {
         e.style.transition = "text-shadow 1000ms ease-in-out"
@@ -10,7 +10,7 @@ function highlight(e) {
 
 // update gallery main item (wip)
 function showGalleryMain(thumb) {
-    mainDiv = thumb.parentElement.parentElement.firstElementChild;
+    mainDiv = document.getElementsByClassName("gallery-main")[0];
     mainVid = mainDiv.nextElementSibling;
     mainIframe = mainVid.nextElementSibling;
 
@@ -73,6 +73,15 @@ document.querySelectorAll(".gallery-thumbs > div").forEach(thumb => {
         showGalleryMain(evt.target);
     });
 })
+
+document.querySelector(".gallery-right").addEventListener('click', function(evt) {
+    document.querySelector(".gallery-thumbs").scrollLeft += 150;
+});
+
+document.querySelector(".gallery-left").addEventListener('click', function(evt) {
+    document.querySelector(".gallery-thumbs").scrollLeft -= 150;
+});
+
 
 // sets first item in gallery to main item
 document.querySelectorAll(".gallery-thumbs").forEach(e => {

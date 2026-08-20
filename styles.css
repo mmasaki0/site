@@ -1,8 +1,9 @@
 :root {
     --color-background: rgb(10,10,10);
-    --color-background-light: rgb(20,20,20);
-    --color-tile: rgb(20,20,20);
+    --color-background-light: rgb(15,15,15);
+    --color-tile: rgb(20,20,20);    
     --color-tile-light: rgb(30,30,30);
+    --color-tile-dark: rgb(15,15,15);
 
     --color-text: rgb(252,252,252);
     --color-text-darker: rgb(200,200,200);
@@ -217,7 +218,7 @@ li > a, .project-board > a {
 .gallery-main {
 
     /* box-sizing: content-box; */
-    background-color: var(--color-tile);
+    background-color: var(--color-tile-dark);
     
     /* width: 100%;
     height: max(30rem); */
@@ -247,14 +248,45 @@ li > a, .project-board > a {
     background-position: 50% 50%;
 }
 
+.gallery-thumbs-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.gallery-button {
+    display: flex;
+    flex: 0 0 2rem;
+
+    background-color: rgb(30,30,30);
+    border: 1px solid rgb(40,40,40);
+
+    justify-content: center; 
+    align-items: center;
+
+    transition: background-color 250ms;
+}
+
+.gallery-left {
+    margin-right: 0.4rem;
+}
+
+.gallery-right {
+    margin-left: 0.4rem;
+}
+
+.gallery-button > span {
+    user-select: none;
+    color: var(--color-text-dark)
+}
+
 .gallery-thumbs {
-    width: max-content;
+    /* width: max-content; */
     max-width: 100%;
     display: flex;
-    overflow: scroll hidden;
+    overflow: auto hidden;
     gap: 0.4rem;
     margin: 0 auto;
-
+    scroll-behavior: smooth;
     
 }
 
@@ -360,6 +392,10 @@ noscript {
         height: 4rem;
         /* height: unset; */
         /* width: 100%; */
+    }
+
+    .gallery-button:hover {
+        background-color: rgb(40,40,40);
     }
 
     .spacer {
