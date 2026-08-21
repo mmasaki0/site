@@ -71,12 +71,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 window.addEventListener('load', function() {
     if(window.location.hash != '' && window.location.hash.length > 1 && performance.getEntriesByType('navigation')[0].type === 'navigate') {
         document.querySelector('.main').scroll(0,0);
-        // setTimeout(() => {
+        setTimeout(() => {
                 highlight(document.querySelector(window.location.hash).nextElementSibling)
             document.querySelector(window.location.hash).scrollIntoView({
                 behavior: 'smooth'
             });
-        // }, 0);
+        }, 10);
     }
 })
 
