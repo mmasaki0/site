@@ -68,7 +68,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // scroll into view from different page
-window.addEventListener('load', function() {
+document.addEventListener('DOMContentLoaded', function() {
     if(window.location.hash != '' && window.location.hash.length > 1 && performance.getEntriesByType('navigation')[0].type === 'navigate') {
         document.querySelector('.main').scroll(0,0);
         setTimeout(() => {
@@ -76,7 +76,7 @@ window.addEventListener('load', function() {
             document.querySelector(window.location.hash).scrollIntoView({
                 behavior: 'smooth'
             });
-        }, 10);
+        }, 100);
     }
 })
 
