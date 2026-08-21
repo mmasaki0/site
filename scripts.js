@@ -68,17 +68,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // scroll into view from different page
-document.addEventListener('DOMContentLoaded', function() {
-    if(window.location.hash != '' && window.location.hash.length > 1 && performance.getEntriesByType('navigation')[0].type === 'navigate') {
-        document.querySelector('.main').scroll(0,0);
-        setTimeout(() => {
-                highlight(document.querySelector(window.location.hash).nextElementSibling)
-            document.querySelector(window.location.hash).scrollIntoView({
-                behavior: 'smooth'
-            });
-        }, 100);
-    }
-})
+// document.addEventListener('DOMContentLoaded', function() {
+//     if(window.location.hash != '' && window.location.hash.length > 1 && performance.getEntriesByType('navigation')[0].type === 'navigate') {
+//         document.querySelector('.main').scroll(0,0);
+//         setTimeout(() => {
+//                 highlight(document.querySelector(window.location.hash).nextElementSibling)
+//             document.querySelector(window.location.hash).scrollIntoView({
+//                 behavior: 'smooth'
+//             });
+//         }, 100);
+//     }
+// })
 
 // adds click to all gallery items
 document.querySelectorAll(".gallery-thumbs > div").forEach(thumb => {
