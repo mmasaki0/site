@@ -67,23 +67,59 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// scroll into view from different page
+document.addEventListener('DOMContentLoaded', function() {
+    if(window.location.hash != '' && window.location.hash.length > 1 && performance.getEntriesByType('navigation')[0].type === 'navigate') {
+        document.querySelector('.main').scroll(0,0);
+        highlight(document.querySelector(window.location.hash).nextElementSibling)
+        document.querySelector(window.location.hash).scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+})
+
 // adds click to all gallery items
 document.querySelectorAll(".gallery-thumbs > div").forEach(thumb => {
     thumb.addEventListener('click', function(evt) {
         showGalleryMain(evt.target);
     });
-})
-
-document.querySelector(".gallery-right").addEventListener('click', function(evt) {
-    document.querySelector(".gallery-thumbs").scrollLeft += 150;
 });
 
-document.querySelector(".gallery-left").addEventListener('click', function(evt) {
-    document.querySelector(".gallery-thumbs").scrollLeft -= 150;
+document.querySelectorAll(".gallery-right").forEach(e => {
+    e.addEventListener('click', function() {
+        document.querySelector(".gallery-thumbs").scrollLeft += 150;
+    });
 });
 
+document.querySelectorAll(".gallery-left").forEach(e => {
+    e.addEventListener('click', function() {
+        document.querySelector(".gallery-thumbs").scrollLeft -= 150;
+    });
+});
 
 // sets first item in gallery to main item
 document.querySelectorAll(".gallery-thumbs").forEach(e => {
     showGalleryMain(e.firstElementChild);
 })
+
+const mal = document.querySelector(".contact");
+if(mal) {
+    mal.childNodes[1].childNodes.forEach((node) => {
+        let currentNode;
+        
+        if(node.nodeType === Node.TEXT_NODE) {
+            currentNode = node;
+        } else if(node.nodeType === Node.ELEMENT_NODE) {
+            currentNode = node.childNodes[0]
+        }
+
+        
+        currentNode.nodeValue = currentNode.nodeValue
+            .replaceAll("\"", "")
+            .replace("kawa", "ma")
+            .replace("sub", "m")
+            .replace("h", "")
+            .replace("46", "@gmail.com")
+
+    })
+}

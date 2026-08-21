@@ -106,7 +106,9 @@ li > a, .project-board > a {
     text-decoration: none;
 }
 
-
+.navbarBreak > span:nth-child(1) {
+    display: none;
+}
 
 .main {
     padding: 0px 1rem;
@@ -318,8 +320,12 @@ li > a, .project-board > a {
     margin: 0;
 }
 
-.contact > li {
+.contact > li > a {
     text-decoration: underline;
+}
+
+.contact > li > span:nth-child(2) {
+    display: none;
 }
 
 .spacer {
@@ -380,10 +386,18 @@ noscript {
         flex-direction: column;
     }
 
-    .navbar > ul > li:hover {
+    .navbar > ul > li > a:hover {
         text-decoration: underline;
     }
 
+    .navbarBreak > span:nth-child(1) {
+        display: initial;
+        vertical-align: top;
+    }   
+
+    .navbarBreak > span:nth-child(2) {
+        display: none;
+    }   
 
     .project-tile:hover {
         background-color: var(--color-tile-light);
@@ -400,7 +414,7 @@ noscript {
     }
 
     .spacer {
-        margin-top: 4rem;
+        margin-top: 3rem;
         margin-bottom: 0;
     }
 
