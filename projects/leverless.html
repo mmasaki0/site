@@ -38,8 +38,8 @@
                 <br><br><br>
             </noscript>
             
-            <h1>leverless controller for fighting games</h1>
-            <p>mechanical switch input with microcontroller</p>
+            <h1>arcade fight stick</h1>
+            <p>yummy mechanical switches</p>
             <p class="text-date">may 2026</p>
             <br>    
             <ul class="skills-tools">
@@ -50,13 +50,13 @@
                 <li>microcontrollers</li>
             </ul>
             <br>
-            <ul>
+            <!-- <ul>
                 <li>designed custom pcb with 3x4 switch matrix in kicad</li>
                 <li>soldered diodes, switches, and microcontroller; confirmed continuity with multimeter</li>
                 <li>fabricated 3d printed keycaps; applied tolerancing and dfm principles to ensure proper fit and part strength</li>
             </ul>
 
-            <br>
+            <br> -->
 
             <div class="gallery-container">
                 <div class="gallery-main"></div>
@@ -65,19 +65,19 @@
                 <div class="gallery-thumbs-container">
                     <div class="gallery-button gallery-left"><span>◂</span></div>
                     <div class="gallery-thumbs scrollbar">
+                        <div data-type="img" style="background-image: url(/assets/projects/leverless/IMG_6571.jpg)"></div>
                         <div data-type="img" style="background-image: url(/assets/projects/leverless/sketch.png)"></div>
                         <div data-type="img" style="background-image: url(/assets/projects/leverless/schematic.png)"></div>
                         <div data-type="img" style="background-image: url(/assets/projects/leverless/pcb.png)"></div>
                         <div data-type="img" style="background-image: url(/assets/projects/leverless/assembly1.png)"></div>
                         <div data-type="img" style="background-image: url(/assets/projects/leverless/assembly2.png)"></div>
+                        <div data-type="vid" data-src="/assets/projects/leverless/IMG_6570.MOV" style="background-image: url(/assets/projects/leverless/IMG_6570.png)"><div class="gallery-overlay-vid"></div></div>
+                        <div data-type="vid" data-src="/assets/projects/leverless/IMG_6579.MOV" style="background-image: url(/assets/projects/leverless/IMG_6579.png)"><div class="gallery-overlay-vid"></div></div>
+                        <div data-type="img" style="background-image: url(/assets/projects/leverless/IMG_6517.jpg)"></div>
                         <div data-type="img" style="background-image: url(/assets/projects/leverless/exploded.png)"></div>
                         <div data-type="img" style="background-image: url(/assets/projects/leverless/casebottom.png)"></div>
                         <div data-type="img" style="background-image: url(/assets/projects/leverless/casetop.png)"></div>
                         <div data-type="img" style="background-image: url(/assets/projects/leverless/keycap1.png)"></div>
-                        <div data-type="img" style="background-image: url(/assets/projects/leverless/IMG_6571.jpg)"></div>
-                        <div data-type="vid" data-src="/assets/projects/leverless/IMG_6570.MOV" style="background-image: url(/assets/projects/leverless/IMG_6570.png)"><div class="gallery-overlay-vid"></div></div>
-                        <div data-type="vid" data-src="/assets/projects/leverless/IMG_6579.MOV" style="background-image: url(/assets/projects/leverless/IMG_6579.png)"><div class="gallery-overlay-vid"></div></div>
-                        <div data-type="img" style="background-image: url(/assets/projects/leverless/IMG_6517.jpg)"></div>
                     </div>
                     <div class="gallery-button gallery-right"><span>▸</span></div>
                 </div>
@@ -85,10 +85,27 @@
 
             <br>
 
-            <p class="commentary">
-                commentary: i ended up not manufacturing the case to explore alternative designs that use less material. i also removed the mounting holes from the original pcb in favor of a silicon gasket mount method.
+            <p>
+                i built an arcade fight stick using the method of a custom mechanical keyboard. 
             </p>
-            
+            <br>
+
+            <p>
+                the board holds a 3x4 switch matrix with diodes routed to a microcontroller. the pcb was designed in kicad and manufactured by jlcpcb. the case and keycaps were designed in onshape. keycaps were printed at an angle to strengthen the center stems. the microcontroller was programmed with qmk firmware and connects with devices through usb-c.
+            </p>
+            <br>
+
+            <p>
+                i really like how the case design turned out but i'm exploring alternative designs that use less material.
+            </p>
+            <br>
+
+            <p>specs:</p>
+            <ul>
+                <li>seeed studio xiao rp2040</li>
+                <li>gateron milky yellow switches</li>
+            </ul>
+
             <div class="spacer"></div>
             <footer>designed by masaki maruo · 2026</footer>
         </div>

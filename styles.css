@@ -315,6 +315,7 @@ li > a, .project-board > a {
     flex-wrap: wrap;
     list-style: none;
     gap: 1rem;
+    margin: 0;
 }
 
 .contact > li {
