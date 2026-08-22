@@ -10,9 +10,11 @@ function highlight(e) {
 
 // update gallery main item (wip)
 function showGalleryMain(thumb) {
-    mainDiv = document.getElementsByClassName("gallery-main")[0];
-    mainVid = mainDiv.nextElementSibling;
-    mainIframe = mainVid.nextElementSibling;
+    mainDiv = document.querySelector(".gallery-main");
+    mainVid = document.querySelector(".gallery-main ~ video")
+    mainIframe = document.querySelector(".gallery-main ~ iframe")
+
+    console.log(mainDiv);
 
     switch(thumb.dataset.type) {
         case "img":
@@ -21,8 +23,13 @@ function showGalleryMain(thumb) {
             mainDiv.style.display = "block";
             mainVid.style.display = "none";
             mainIframe.style.display = "none";
+
             mainVid.src="";
-            mainIframe.src="";
+
+            if(mainIframe) {
+                mainIframe.remove();
+            }
+
             break;
 
         case "gif":
@@ -31,8 +38,12 @@ function showGalleryMain(thumb) {
             mainDiv.style.display = "block";
             mainVid.style.display = "none";
             mainIframe.style.display = "none";
+
             mainVid.src="";
-            mainIframe.src="";
+            if(mainIframe) {
+                mainIframe.remove();
+            }
+
             break;
 
         case "vid":
@@ -41,20 +52,41 @@ function showGalleryMain(thumb) {
             mainDiv.style.display = "none";
             mainVid.style.display = "block";
             mainIframe.style.display = "none";
-            mainIframe.src="";
+
+            if(mainIframe) {
+                mainIframe.remove();
+            }
+
             break;
         case "yt":
+            if(mainIframe) {
+                mainIframe.remove();
+            }
+
+            mainIframe = document.createElement("iframe");
+            mainIframe.setAttribute("allowfullscreen", "");
+            mainIframe.setAttribute("frameborder", "0");
+            mainIframe.setAttribute("preload", "metadata");
+            mainIframe.style.width = "100%";
+            mainIframe.style.height = "100%";
+            
+            mainIframe.classList.add("gallery-main");
             mainIframe.src = "https://www.youtube.com/embed/" + thumb.dataset.src;
+
+            mainVid.after(mainIframe);
 
             mainDiv.style.display = "none";
             mainVid.style.display = "none";
             mainIframe.style.display = "block";
+
             mainVid.src="";
+
             break;
         default:
             break;
     }
 }
+
 
 // scroll into view
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -64,8 +96,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
         });
+        // history.replaceState(null, null, anchor.getAttribute('href'));
     });
 });
+
+// document.querySelectorAll(".navbar > ")
 
 // scroll into view from different page
 // document.addEventListener('DOMContentLoaded', function() {
