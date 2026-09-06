@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" class="scrollbar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masaki Maruo</title>
+
+    <link rel="stylesheet" href="/styles.css">
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+</head>
+
+<body>
+    <div class="main-container">
+        
+        <div class="navbar">
+            <ul>
+                <li><a href="/index.html#home">home</a></li>
+                <li><a href="/index.html#contact">contact</a></li>
+                <li><a href="/index.html#projects">projects</a></li>
+                
+                <li class="navbarBreak"><span>───────</span><span>|</span></li>
+                <li><a href="/projects/placeholder.html">photography</a></li>
+            </ul>
+        </div>
+
+        <div class="main">
+            <div id="home" name="home" class="spacer"></div>
+            <noscript>
+                For full functionality of this site it is necessary to enable JavaScript.
+                Here are the <a href="https://www.enablejavascript.io/" target="_blank">
+                instructions how to enable JavaScript in your web browser</a>.
+                <br><br><br>
+            </noscript>
+
+            <h1>ergonomic camera grip</h1>
+            <p>3d printed attachment for sony α6400</p>
+            <p class="text-date">may 2025 ~ july 2025</p>
+            <br>    
+            <ul class="skills-tools">
+                <li>cad</li>
+                <li>3d printing</li>
+                <li>fea</li>
+            </ul>
+            <br>
+            
+            <div class="gallery-container">
+                <div class="gallery-main"></div>
+                <video class="gallery-main" controls loop></video>
+                <iframe class="gallery-main" allowfullscreen frameborder="0" preload="metadata" style="width: 100%; height: 100%;"></iframe>
+                <div class="gallery-thumbs-container">
+                    <div class="gallery-button gallery-left"><span>◂</span></div>
+                    <div class="gallery-thumbs scrollbar">
+                        <div data-type="img" style="background-image: url(/assets/projects/camera-grip/gripping.png)"></div>
+                        <div data-type="img" style="background-image: url(/assets/projects/camera-grip/on-cam.png)"></div>
+                        <div data-type="img" style="background-image: url(/assets/projects/camera-grip/iterations.png)"></div>
+                        <div data-type="img" style="background-image: url(/assets/projects/camera-grip/fuzzy-skin.png)"></div>
+                        <div data-type="img" style="background-image: url(/assets/projects/camera-grip/assembly.png)"></div>
+                        <div data-type="img" style="background-image: url(/assets/projects/camera-grip/part.png)"></div>
+                        <div data-type="img" style="background-image: url(/assets/projects/camera-grip/knob.png)"></div>
+                        <div data-type="img" style="background-image: url(/assets/projects/camera-grip/fea.png)"></div>
+                        <div data-type="img" style="background-image: url(/assets/projects/camera-grip/slicer.png)"></div>
+                        
+                        <!-- <div data-type="vid" data-src="/assets/projects/leverless/IMG_6570.MOV" style="background-image: url(/assets/projects/leverless/IMG_6570.png)"><div class="gallery-overlay-vid"></div></div> -->
+                        <!-- <div data-type="yt" data-src="0m5Av8Da2x4" style="background-image: url(https://i.ytimg.com/vi_webp/0m5Av8Da2x4/maxresdefault.webp)"><div class="gallery-overlay-vid"></div></div> -->
+                        <!-- <div data-type="gif" data-src="url(/assets/projects/mass-fitness/tabs.gif)" style="background-image: url(/assets/projects/mass-fitness/tabs.png);"></div> -->
+                    </div>
+                    <div class="gallery-button gallery-right"><span>▸</span></div>
+                </div>
+            </div>
+            <br>
+
+            <div class="main-content">
+                <p>
+                    i experienced hand and wrist fatigue when using my digital camera. i noticed it was mainly due to the body being too short for my hand to fully grab onto and the sharp corner digging into the base of my thumb.
+                </p>
+                <br>
+
+                <p>
+                    i designed a 3d printed attachment to my camera using the screw mount on the bottom of the camera. the design focused on large fillets to create smooth corners and a hollow inside to reduce material usage.
+                </p>
+                <br>
+
+                <p>
+                    this was the first project i designed in onshape. i used a ruler and calipers to measure the base of the camera along with a photo reference and created a representation of it in cad. to match the contour of the camera better, i 3d printed 1mm thick test prints to overlay with the camera and iterated on it a few times.
+                </p>
+                <br>
+
+                <p>
+                    i also ran static stress analysis to ensure the deflection was not significant when gripped tightly while keeping the walls thin to reduce material usage.
+                </p>
+                <br>
+
+                <p>
+                    i manufactured the first iteration before going on a four week trip to japan. i used the camera nearly every day and identified multiple problems with the design. one was the lack of a knob to easily take the attachment off. another was the top of the grip being flat which allowed it to rotate and unalign with the camera if pushed hard enough. there were some other minor issues like not having enough pinky room.
+                </p>
+                <br>
+
+                <p>
+                    i worked on the second iteration after coming back from the trip. i added small lips on the front to prevent it from twisting away, cut out some more pinky room, added a knob and nylon washer, and added fuzzy skin on the outer surfaces to add texture.
+                </p>
+                <br>
+
+                <p>
+                    through this i greatly increased the usability of my camera and now rarely have fatigue issues. if i were to revisit this project, i would change all the fillets to be curvature (g2) continuous for better aesthetics, and see if i could make the battery more accessible.
+                </p>
+                <br>
+
+                <p>hardware:</p>
+                <ul>
+                    <li>1/4"-20 x 1/2" Hex Bolt</li>
+                    <li>1/4" Nylon Washer</li>
+                </ul>
+                <br>
+
+            </div>
+            <div class="spacer"></div>
+            <footer>designed by masaki maruo · 2026</footer>
+        </div>
+        
+    </div>
+</body>
+<script src="/scripts.js" defer></script>
+</html>

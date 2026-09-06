@@ -307,7 +307,6 @@ li > a, .project-board > a {
     aspect-ratio: 1;
     height: 5rem;
     background-color: white;
-
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
