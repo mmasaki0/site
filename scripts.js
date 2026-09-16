@@ -14,15 +14,15 @@ function showGalleryMain(thumb) {
     mainVid = document.querySelector(".gallery-main ~ video")
     mainIframe = document.querySelector(".gallery-main ~ iframe")
 
-    console.log(mainDiv);
+    // console.log(mainDiv);    
 
     switch(thumb.dataset.type) {
         case "img":
             mainDiv.style.backgroundImage = thumb.style.backgroundImage;
 
-            mainDiv.style.display = "block";
+            mainDiv.style.display = "flex";
             mainVid.style.display = "none";
-            mainIframe.style.display = "none";
+            // mainIframe.style.display = "none";
 
             mainVid.src="";
 
@@ -37,7 +37,7 @@ function showGalleryMain(thumb) {
 
             mainDiv.style.display = "block";
             mainVid.style.display = "none";
-            mainIframe.style.display = "none";
+            // mainIframe.style.display = "none";
 
             mainVid.src="";
             if(mainIframe) {
@@ -51,7 +51,7 @@ function showGalleryMain(thumb) {
 
             mainDiv.style.display = "none";
             mainVid.style.display = "block";
-            mainIframe.style.display = "none";
+            // mainIframe.style.display = "none";
 
             if(mainIframe) {
                 mainIframe.remove();
@@ -85,7 +85,15 @@ function showGalleryMain(thumb) {
         default:
             break;
     }
-}
+    
+    document.querySelectorAll(".gallery-caption").forEach(caption => {
+        if(thumb.hasAttribute("data-caption")) {
+            caption.innerHTML = thumb.dataset.caption;
+        } else {
+            caption.innerHTML = "";
+        }
+    });
+};
 
 
 // scroll into view

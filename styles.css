@@ -259,6 +259,14 @@ li > a, .project-board > a {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+
+    display: flex;
+    align-items: flex-end;
+}
+
+.gallery-caption {
+    background-color: rgba(50, 50, 50, 0.8);
+    padding: 0.1rem;
 }
 
 .gallery-thumbs-container {
