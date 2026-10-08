@@ -1,3 +1,27 @@
+//media query identifier
+const phoneMediaQuery = window.matchMedia("(width < 768px)");
+const tabletMediaQuery = window.matchMedia("(width >= 768px) and (width < 1024px)");
+const desktopMediaQuery = window.matchMedia("(width >= 1024px)");
+
+let currentMediaQuery = "phone";
+
+function updateCurrentMediaQuery() {
+    if(phoneMediaQuery.matches) {
+        currentMediaQuery = "phone";
+    }
+    if(tabletMediaQuery.matches) {
+        currentMediaQuery = "tablet";
+    }
+    if(desktopMediaQuery.matches) {
+        currentMediaQuery = "desktop";
+    }
+}
+
+addEventListener("resize", () => {
+    updateCurrentMediaQuery();
+    // console.log(currentMediaQuery)
+})
+
 function highlight(e) {
     e.style.transition = "text-shadow 1ms ease-in-out"
     e.style.textShadow = "white 0 0 2px";
@@ -128,6 +152,13 @@ document.querySelectorAll(".gallery-thumbs > div").forEach(thumb => {
     thumb.addEventListener('click', function(evt) {
         showGalleryMain(evt.target);
     });
+});
+
+// add click to all gallery main
+document.querySelectorAll(".gallery-main ~ div").forEach(e => {
+    e.addEventListener('click', function () {
+
+    })
 });
 
 document.querySelectorAll(".gallery-right").forEach(e => {
