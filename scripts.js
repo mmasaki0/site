@@ -3,24 +3,39 @@ const phoneMediaQuery = window.matchMedia("(width < 768px)");
 const tabletMediaQuery = window.matchMedia("(width >= 768px) and (width < 1024px)");
 const desktopMediaQuery = window.matchMedia("(width >= 1024px)");
 
+const photoModalContainer = document.querySelector(".photo-modal-container")
+
 let currentMediaQuery = "phone";
+updateCurrentMediaQuery();
 
 function updateCurrentMediaQuery() {
-    if(phoneMediaQuery.matches) {
+    if(phoneMediaQuery.matches && currentMediaQuery != "phone") {
         currentMediaQuery = "phone";
+        // console.log(currentMediaQuery)
     }
-    if(tabletMediaQuery.matches) {
+    if(tabletMediaQuery.matches && currentMediaQuery != "tablet") {
         currentMediaQuery = "tablet";
+        // console.log(currentMediaQuery)
     }
-    if(desktopMediaQuery.matches) {
+    if(desktopMediaQuery.matches && currentMediaQuery != "desktop") {
         currentMediaQuery = "desktop";
+        // console.log(currentMediaQuery)
     }
 }
 
 addEventListener("resize", () => {
     updateCurrentMediaQuery();
-    // console.log(currentMediaQuery)
+
+    if(currentMediaQuery == "phone" || currentMediaQuery == "tablet") {
+        photoModalHide()
+    }
 })
+
+function photoModalHide() {
+    if(photoModalContainer) {
+        photoModalContainer.style.display = "none";
+    }
+}
 
 function highlight(e) {
     e.style.transition = "text-shadow 1ms ease-in-out"
@@ -119,7 +134,6 @@ function showGalleryMain(thumb) {
     });
 };
 
-
 // scroll into view
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -132,21 +146,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// document.querySelectorAll(".navbar > ")
-
-// scroll into view from different page
-// document.addEventListener('DOMContentLoaded', function() {
-//     if(window.location.hash != '' && window.location.hash.length > 1 && performance.getEntriesByType('navigation')[0].type === 'navigate') {
-//         document.querySelector('.main').scroll(0,0);
-//         setTimeout(() => {
-//                 highlight(document.querySelector(window.location.hash).nextElementSibling)
-//             document.querySelector(window.location.hash).scrollIntoView({
-//                 behavior: 'smooth'
-//             });
-//         }, 100);
-//     }
-// })
-
 // adds click to all gallery items
 document.querySelectorAll(".gallery-thumbs > div").forEach(thumb => {
     thumb.addEventListener('click', function(evt) {
@@ -154,10 +153,26 @@ document.querySelectorAll(".gallery-thumbs > div").forEach(thumb => {
     });
 });
 
-// add click to all gallery main
-document.querySelectorAll(".gallery-main ~ div").forEach(e => {
-    e.addEventListener('click', function () {
+document.querySelector(".photo-modal-container").addEventListener('click', (event) => {
+    if(event.target == photoModalContainer) {
+        photoModalHide();
+    }
+});
 
+// add click to div gallery main
+document.querySelectorAll("div.gallery-main").forEach(e => {
+    e.addEventListener('click', function () {
+        if(currentMediaQuery == "desktop") {
+            // make new image object to get width and height for aspect ratio
+            var image = new Image();
+            image.src = e.style.backgroundImage.replace(/"/g,"").replace(/url\(|\)$/ig, "");
+
+            image.onload = function() {
+                document.querySelector(".photo-modal-item").style.backgroundImage = e.style.backgroundImage;
+                document.querySelector(".photo-modal-item").style.aspectRatio = image.width / image.height;
+                document.querySelector(".photo-modal-container").style.display = "block";
+            }
+        }
     })
 });
 
