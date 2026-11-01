@@ -34,8 +34,11 @@ addEventListener("resize", () => {
 function photoModalHide() {
     if(photoModalContainer) {
         photoModalContainer.style.display = "none";
+        document.querySelector(".navbar").inert = false;
+        document.querySelector(".main").inert = false;
     }
 }
+
 
 function highlight(e) {
     e.style.transition = "text-shadow 1ms ease-in-out"
@@ -147,7 +150,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // adds click to all gallery items
-document.querySelectorAll(".gallery-thumbs > div").forEach(thumb => {
+document.querySelectorAll(".gallery-thumbs > button").forEach(thumb => {
     thumb.addEventListener('click', function(evt) {
         showGalleryMain(evt.target);
     });
@@ -159,8 +162,20 @@ document.querySelector(".photo-modal-container").addEventListener('click', (even
     }
 });
 
+document.querySelector(".photo-modal-x").addEventListener('click', (event) => {
+    // if(event.target == photoModalContainer) {
+        photoModalHide();
+    // }
+});
+
+document.onkeydown = function(evt) {
+    if(evt.key === 'Escape') {
+        photoModalHide();
+    }
+}
+
 // add click to div gallery main
-document.querySelectorAll("div.gallery-main").forEach(e => {
+document.querySelectorAll("button.gallery-main").forEach(e => {
     e.addEventListener('click', function () {
         if(currentMediaQuery == "desktop") {
             // make new image object to get width and height for aspect ratio
@@ -172,6 +187,11 @@ document.querySelectorAll("div.gallery-main").forEach(e => {
                 document.querySelector(".photo-modal-item").style.aspectRatio = image.width / image.height;
                 document.querySelector(".photo-modal-container").style.display = "block";
             }
+
+            //make background inert
+            document.querySelector(".navbar").inert = true;
+            document.querySelector(".main").inert = true;
+
         }
     })
 });
